@@ -24,7 +24,10 @@ class Mapnik(MetaLayer):
             self.fonts = []
             
     def renderTile(self, tile):
-        import mapnik
+        try:
+            import mapnik2 as mapnik
+        except ImportError:
+            import mapnik
         
         if self.mapnik:
             m = self.mapnik
